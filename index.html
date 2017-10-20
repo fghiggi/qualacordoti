@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>A cor do TI hoje</title>
+</head>
+<body>
+</body>
+<script>
+    onload = function() {	  
+        fetch('https://api.myjson.com/bins/daw0v')
+        .then(res=>res.json()
+        .then(json => {
+            document.body.style.backgroundColor = json.cor;
+        }))
+		.then(res => console.log(res));
+	};
+</script>
+</html>
