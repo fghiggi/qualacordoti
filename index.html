@@ -1,21 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>A cor do TI hoje</title>
 </head>
+
 <body>
+    <div style="width: 150px; display: none;" id="divzera">
+        <div style="display: table-cell">
+            <input type="text" id="corzera" />
+        </div>
+        <input type="button" value="mudar" onclick="doTheHand()" />
+    </div>
 </body>
 <script>
-    onload = function() {	  
-        fetch('https://api.myjson.com/bins/daw0v')
-        .then(res=>res.json()
-        .then(json => {
-            document.body.style.backgroundColor = json.cor;
-        }))
-		.catch(res => console.log(res));
-	};
+    onload = function () {
+        request();
+    };
+
+    onkeypress = function (e) {
+        if (e.key === 't') {
+            document.getElementById("divzera").style.display = 'table';
+        }
+
+        if (e.key === 'i') {
+            document.getElementById("divzera").style.display = 'none';
+        }
+    }
+
+    doTheHand = function () {
+        request({
+            method: 'PUT',
+            headers: { "Content-Type": "application/json; charset=UTF-8" },
+            body: `{ "cor": "${document.getElementById("corzera").value}" }`
+        });
+    }
+
+    request = function (options) {
+        fetch('https://api.myjson.com/bins/daw0v', options)
+            .then(res => res.json()
+                .then(json => {
+                    document.body.style.backgroundColor = json.cor;
+                }))
+            .catch(res => console.log(res));
+    }
 </script>
+
 </html>
