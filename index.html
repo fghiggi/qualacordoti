@@ -11,7 +11,7 @@
 <body>
     <div style="width: 150px; display: none;" id="divzera">
         <div style="display: table-cell">
-            <input type="text" id="corzera" />
+            <input type="text" id="corzera" autofocus />
         </div>
         <input type="button" value="mudar" onclick="doTheHand()" />
     </div>
@@ -22,12 +22,14 @@
     };
 
     onkeypress = function (e) {
+        let campoCor = document.getElementById("divzera");
+
         if (e.key === 't') {
-            document.getElementById("divzera").style.display = 'table';
+            campoCor.style.display = 'table';
         }
 
         if (e.key === 'i') {
-            document.getElementById("divzera").style.display = 'none';
+            campoCor.style.display = 'none';
         }
     }
 
