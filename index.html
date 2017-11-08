@@ -34,12 +34,24 @@
         }
     }
 
-    ontouchstart = function () {
-        let campoCor = document.getElementById("divzera");
+    var tapTimeout = null;
 
-        campoCor.style.display = campoCor.style.display === 'none'
-            ? 'table'
-            : 'none';
+    ontouchstart = function () {
+        // Detect double tap
+        if (tapTimeout != null) {
+            clearTimeout(tapTimeout);
+            tapTimeout = null;
+
+            let campoCor = document.getElementById("divzera");
+
+            campoCor.style.display = campoCor.style.display === 'none'
+                ? 'table'
+                : 'none';
+        } else {
+            tapTimeout = setTimeout(function () {
+                tapTimeout = null;
+            }, 300);
+        }
     }
 
     doTheHand = function () {
