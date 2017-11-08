@@ -1,0 +1,13 @@
+{
+  "name": "A cor do TI hoje",
+  "short_name": "A cor do TI",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0000ff",
+  "theme_color": "#0000ff",
+  "icons": [
+    {
+      "src": "homescreen.png"
+    }
+  ]
+}
