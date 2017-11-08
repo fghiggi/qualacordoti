@@ -33,6 +33,14 @@
         }
     }
 
+    ontouchstart = function () {
+        let campoCor = document.getElementById("divzera");
+
+        campoCor.style.display = campoCor.style.display === 'none'
+            ? 'table'
+            : 'none';
+    }
+
     doTheHand = function () {
         request({
             method: 'PUT',
